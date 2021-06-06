@@ -166,14 +166,22 @@ $(document).ready(function(){
 </script>
 
 <script>
-    $(document).ready(function(){
-    $(".drop-link").hide();
-        $(".drop-header").show();$('.drop-header').toggle(function(){
-            $(".drop-link").slideDown(function(){});
-                },function(){
-            $(".drop-link").slideUp(function(){});
-        });
-    });
+    function dropHeader_onclick (elem)
+    {
+        let parent = elem.closest(".drop-parent");
+        if (parent) {
+            let active = parent.classList.toggle('active');
+            let acc = parent.getElementsByClassName('drop-link')[0];
+            if (acc) {
+                if (active) {
+                    acc.style.maxHeight = acc.scrollHeight + 'px';
+                }
+                else {
+                    acc.style.maxHeight = '0px';
+                }
+            }
+        }
+    }
 </script>
 
 <style type="text/css">
@@ -360,6 +368,15 @@ nav span {
 
 nav blockquote {
     margin:0.5em 0 0.5em 0.5em;
+}
+
+.drop-link {
+    overflow:hidden;
+    max-height:0;
+    transition:max-height 0.5s ease-in-out;
+}
+.drop-parent.active .drop-link {
+    transition:max-height 0.5s ease-in-out;
 }
 
 .search {
@@ -589,7 +606,7 @@ a.user:hover { color:{color:accent}; }
     color:{color:accent};
 }
 
-.date:first-of-type {
+.date:first-of-type, .notecount {
     font-weight:bold;
 }
 
@@ -768,20 +785,20 @@ footer .oi {
     {block:ifDescription}
     <div class="description">{text:Description}</div>
     {/block:ifDescription}
-    <nav>
+    <nav class="drop-parent">
     {block:ifHomeLink}<span><i class="oi oi-{text:home icon}"></i><a href="/">{text:home link}</a></span>{/block:ifHomeLink}
     {block:ifAskLink}<span><i class="oi oi-{text:ask icon}"></i><a href="/ask">{text:ask link}</a></span>{/block:ifAskLink}
     {block:ifArchiveLink}<span><i class="oi oi-{text:archive icon}"></i><a href="/archive">{text:archive link}</a></span>{/block:ifArchiveLink}
-    {block:ifLink1}<span><i class="oi oi-{text:navigate icon}"></i><a class="drop-header" href="#">{text:navigation link}</a></span>
+    {block:ifLink1}<span><i class="oi oi-{text:navigate icon}"></i><a class="drop-header" href="#" onclick="dropHeader_onclick(this);">more</a></span>
             <div class="drop-link">
                 <blockquote>
-                    <span><a href="{text:Link 1 URL}">{text:Link 1}</a></span>{/block:ifLink1}
+                <span><a href="{text:Link 1 URL}">{text:Link 1}</a></span>{/block:ifLink1}
                 {block:ifLink2}<span><a href="{text:Link 2 URL}">{text:Link 2}</a></span>{/block:ifLink2}
                 {block:ifLink3}<span><a href="{text:Link 3 URL}">{text:Link 3}</a></span>{/block:ifLink3}
-                {block:HasPages}{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}{/block:HasPages}
+                {block:HasPages}<span>{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}</span>{/block:HasPages}
                 </blockquote>
             </div>
-    <span class="hide"><i class="oi oi-search"></i><form action="/search" method="get" class="search" autocomplete="off"><input type="text" name="q" value="" class="query" placeholder="search" autocomplete="off"></form></span>
+        <span class="hide"><i class="oi oi-search"></i><form action="/search" method="get" class="search" autocomplete="off"><input type="text" name="q" value="" class="query" placeholder="search" autocomplete="off"></form></span>
     </nav>
 </aside>
 
@@ -938,7 +955,7 @@ footer .oi {
 {block:Date}
 <div class="post-info">
     {block:PinnedPostLabel}
-    <div class="date"><a href="{Permalink}">pinned post</a></div>
+    <div class="date"><a href="{Permalink}" title="pinned post"><i class="oi oi-pin"></i></a></div>
     {/block:PinnedPostLabel}
     {block:NoteCount}
     <div class="date"><a href="{Permalink}" class="notecount">{NoteCount} notes</a></div>
