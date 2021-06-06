@@ -24,6 +24,17 @@
 <title>{title} {block:TagPage}/ #{Tag}{/block:TagPage}{block:DayPage}/ @ {ShortMonth} {DayOfMonth}, {Year}{/block:DayPage} {block:PostSummary}/ {PostSummary}{/block:PostSummary}</title>
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 
+{block:Hidden}
+{block:AccentColor}{AccentColor}{/block:AccentColor}
+{block:BackgroundColor}{BackgroundColor}{/block:BackgroundColor}
+{HeaderImage}{block:ShowHeaderImage}{/block:ShowHeaderImage}
+{block:StretchHeaderImage}{/block:StretchHeaderImage}
+{AvatarShape}{block:ShowAvatar}{/block:ShowAvatar}
+{block:ShowTitle}{/block:ShowTitle}
+{block:TitleFont}{TitleFont}{/block:TitleFont}
+{block:ShowDescription}{/block:ShowDescription}
+{/block:Hidden}
+
 <meta name="image:Icon" content=""/>
 
 <meta name="color:Background" content="#FFFFFF" />
@@ -789,7 +800,7 @@ footer .oi {
     {block:ifHomeLink}<span><i class="oi oi-{text:home icon}"></i><a href="/">{text:home link}</a></span>{/block:ifHomeLink}
     {block:ifAskLink}<span><i class="oi oi-{text:ask icon}"></i><a href="/ask">{text:ask link}</a></span>{/block:ifAskLink}
     {block:ifArchiveLink}<span><i class="oi oi-{text:archive icon}"></i><a href="/archive">{text:archive link}</a></span>{/block:ifArchiveLink}
-    {block:ifLink1}<span><i class="oi oi-{text:navigate icon}"></i><a class="drop-header" href="#" onclick="dropHeader_onclick(this);">{text:navigation link}</a></span>
+    {block:ifLink1}<span><i class="oi oi-{text:navigate icon}"></i><a class="drop-header" onclick="dropHeader_onclick(this);">{text:navigation link}</a></span>
             <div class="drop-link">
                 <blockquote>
                 <span><a href="{text:Link 1 URL}">{text:Link 1}</a></span>{/block:ifLink1}
