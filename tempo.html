@@ -24,17 +24,6 @@
 <title>{title} {block:TagPage}/ #{Tag}{/block:TagPage}{block:DayPage}/ @ {ShortMonth} {DayOfMonth}, {Year}{/block:DayPage} {block:PostSummary}/ {PostSummary}{/block:PostSummary}</title>
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 
-{block:Hidden}
-{block:AccentColor}{AccentColor}{/block:AccentColor}
-{block:BackgroundColor}{BackgroundColor}{/block:BackgroundColor}
-{HeaderImage}{block:ShowHeaderImage}{/block:ShowHeaderImage}
-{block:StretchHeaderImage}{/block:StretchHeaderImage}
-{AvatarShape}{block:ShowAvatar}{/block:ShowAvatar}
-{block:ShowTitle}{/block:ShowTitle}
-{block:TitleFont}{TitleFont}{/block:TitleFont}
-{block:ShowDescription}{/block:ShowDescription}
-{/block:Hidden}
-
 <meta name="image:Icon" content=""/>
 
 <meta name="color:Background" content="#FFFFFF" />
@@ -204,12 +193,6 @@ $(document).ready(function(){
 ::selection { background:{color:accent}; color:{color:background}; }
 
 ::marker { color:{color:accent}; }
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar { width:6px; height:6px; }
-::-webkit-scrollbar-track { background-color:{color:borders}; }
-::-webkit-scrollbar-thumb { background-color:{color:accent}; }
 
 /* TUMBLR CONTROLS */
 
@@ -664,15 +647,15 @@ a.more_notes_link:hover { color:{color:accent}; }
 
 .tab {
     position:fixed;
-    top:1em;
-    left:1em;
+    top:10px;
+    left:10px;
     line-height:1em;
 }
 
 .updates {
     position:fixed;
-    top:1em;
-    left:1em;
+    top:10px;
+    left:10px;
     width:auto;
     height:auto;
     padding:1em;
@@ -741,7 +724,7 @@ footer .oi {
 
 @media only screen and (max-width: 720px) {
     section, .posts, aside, footer {
-        width:80vw;
+        width:85vw;
         margin:100px auto;
     }
     
@@ -753,7 +736,7 @@ footer .oi {
     }
     
     .video, .tmblr-full > video {
-        width:80vw;
+        width:85vw;
     }
     
     .iframe-controls--phone-mobile {display: none!important;}
@@ -764,8 +747,8 @@ footer .oi {
 /* CREDIT */
 
 .credit .oi,.top .oi, .tab .oi { font-size:22px; margin:0; }
-.top { left:1em; bottom:1em; display:none; }
-.credit { bottom:1em; right:1em; }
+.top { left:10px; bottom:10px; display:none; }
+.credit { bottom:10px; right:10px; }
 
 .top, .credit, .tab { 
     position:fixed; 
