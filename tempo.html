@@ -39,7 +39,7 @@
 <meta name="text:Title" content="" />
 <meta name="text:Description" content="" />
 
-<meta name="text:Google Font" content="Roboto" />
+<meta name="text:Google Font" content="Roboto Mono" />
 
 <meta name="text:Font Size" content="13px" />
 <meta name="text:Post Width" content="500px" />
@@ -51,6 +51,7 @@
 <meta name="text:Ask Link" content="contact" />
 <meta name="text:Archive Link" content="archive" />
 <meta name="text:Navigation Link" content="navigate" />
+<meta name="text:Search Text" content="search" />
 
 <meta name="text:Home Icon" content="home" />
 <meta name="text:Ask Icon" content="mail" />
@@ -70,7 +71,7 @@
 
 <!-- FONTS -->
 
-<link href="https://fonts.googleapis.com/css?family={text:Google Font}:300,400,500,600,700|Karla:500|Bebas+Neue:400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family={text:Google Font}:300,400,500,600,700|Karla:500" rel="stylesheet">
 
 <!-- SCRIPTS -->
 
@@ -218,16 +219,16 @@ $(document).ready(function(){
 
 /* TOOLTIPS */
 
-#s-m-t-tooltip {
+#s-m-t-tooltip{
     position:absolute;
-    margin:1.4em;
+    margin:15px;
     text-transform:uppercase;
-    padding:1.1em;
+    padding:10px;
     border-radius:3px;
     background:{color:accent};
     color:{color:background};
-    letter-spacing:0.1em;
-    font:0.8em/0.8em karla, sans-serif;
+    letter-spacing:1.2px;
+    font:10px/10px karla, sans-serif;
     font-weight:500;
 }
 
@@ -792,7 +793,7 @@ footer .oi {
                 {block:HasPages}<span>{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}</span>{/block:HasPages}
                 </blockquote>
             </div>
-        <span class="hide"><i class="oi oi-search"></i><form action="/search" method="get" class="search" autocomplete="off"><input type="text" name="q" value="" class="query" placeholder="search" autocomplete="off"></form></span>
+        <span class="hide"><i class="oi oi-search"></i><form action="/search" method="get" class="search" autocomplete="off"><input type="text" name="q" value="" class="query" placeholder="{text:search text}" autocomplete="off"></form></span>
     </nav>
 </aside>
 
